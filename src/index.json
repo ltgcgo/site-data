@@ -1,0 +1,20 @@
+{
+	"template": "template.htm",
+	"page": {
+		"title": "Lightingale Community - Flames in the Dark",
+		"desc": "A group of passionate people keeping the flames lit.",
+		"id": "index"
+	},
+	"copy": {
+		"text": {
+			"title-1": "Lightingale"
+		},
+		"md": {
+			"desc-1": "A group of passionate individuals around the globe, gathered under the name **Lightingale Community**."
+		}
+	},
+	"load": {
+		"text": {},
+		"md": {}
+	}
+}
