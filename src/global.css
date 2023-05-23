@@ -185,7 +185,10 @@ span.text-accent {
 	padding: 8px;
 }
 .footer > div > ul {
-	padding: 0 8px;
+	padding: 0 4px;
+}
+.footer > div li {
+	padding: 4px;
 }
 .footer > div img {
 	filter: brightness(0%) invert(80%);
