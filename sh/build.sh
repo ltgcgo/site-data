@@ -1,11 +1,6 @@
 #!/bin/bash
 mkdir -p dist
-#mkdir -p proxy
-# Remove the dev files
 rm -r dist/*
-# Using esbuild to build all JS files
-#esbuild --bundle src/index.js --outfile=dist/index.js --minify --sourcemap
-#esbuild --bundle src/index.js --target=es6 --outfile=dist/index.es6.js --minify --sourcemap
 tree --noreport -ifld src | while IFS= read -r fullDir ; do
 	dirA=${fullDir/src/}
 	dir=${dirA/\//}
@@ -19,4 +14,13 @@ tree --noreport -ifld src | while IFS= read -r fullDir ; do
 		shx live $dir
 	fi
 done
+rm build.zip 2>/dev/null
+echo "Producing precompressed files..."
+tree -ifl dist | grep -E ".(htm|css|js|wasm|svg)" | while IFS= read -r distFile ; do
+	zopfli "${distFile}"
+	brotli -kvq 11 "${distFile}"
+done
+cd dist
+zip -r0 ../build.zip ./*
+cd ..
 exit
