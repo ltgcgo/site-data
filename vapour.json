@@ -9,7 +9,8 @@
 	},
 	"load": {
 		"md": {
-			"nav-bar": "src/navbar.md"
+			"nav-bar": "src/navbar.md",
+			"quick-links": "src/quick_links.md"
 		}
 	}
 }

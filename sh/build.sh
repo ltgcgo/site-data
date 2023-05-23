@@ -15,12 +15,14 @@ tree --noreport -ifld src | while IFS= read -r fullDir ; do
 	fi
 done
 rm build.zip 2>/dev/null
-echo "Producing precompressed files..."
-tree -ifl dist | grep -E ".(htm|css|js|wasm|svg)" | while IFS= read -r distFile ; do
-	zopfli "${distFile}"
-	brotli -kvq 11 "${distFile}"
-done
-cd dist
-zip -r0 ../build.zip ./*
-cd ..
+if [ "$BUILD" != "" ] ; then
+	echo "Producing precompressed files..."
+	tree -ifl dist | grep -E ".(htm|css|js|wasm|svg)" | while IFS= read -r distFile ; do
+		zopfli "${distFile}"
+		brotli -kvq 11 "${distFile}"
+	done
+	cd dist
+	zip -r0 ../build.zip ./*
+	cd ..
+fi
 exit
