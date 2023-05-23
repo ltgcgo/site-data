@@ -157,7 +157,6 @@ for (let key in ctxSite?.load?.text) {
 };
 for (let key in ctxTpl?.load?.md) {
 	context.text[key] = mdParser.makeHtml(Deno.readTextFileSync(`${workDir}/${ctxTpl.load.md[key]}`));
-	context.text[key] = context.text[key].slice(context.text[key].indexOf("<p>"), context.text[key].lastIndexOf("</p>"));
 };
 for (let key in ctxTpl?.load?.text) {
 	context.text[key] = Deno.readTextFileSync(`${workDir}/${ctxTpl.load.text[key]}`);

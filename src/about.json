@@ -1,0 +1,15 @@
+{
+	"template": "template.html",
+	"page": {
+		"title": "About Us",
+		"desc": "Lightingale Community - About us.",
+		"id": "about"
+	},
+	"copy": {
+	},
+	"load": {
+		"md": {
+			"content": "about.md"
+		}
+	}
+}
