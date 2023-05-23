@@ -142,27 +142,41 @@ workDir = pathCtxTpl.slice(0, pathCtxTpl.lastIndexOf("/"));
 
 // Context building
 let context = {
-	"site": ctxSite,
+	"site": ctxSite?.site || {},
+	"base": {},
 	"page": ctxTpl?.page || {},
 	"text": {}
 };
 
 // Load all texts
+for (let key in ctxSite?.load?.md) {
+	context.base[key] = mdParser.makeHtml(Deno.readTextFileSync(`${ctxSite.load.md[key]}`));
+};
+for (let key in ctxSite?.load?.text) {
+	context.base[key] = Deno.readTextFileSync(`${ctxSite.load.text[key]}`);
+};
 for (let key in ctxTpl?.load?.md) {
 	context.text[key] = mdParser.makeHtml(Deno.readTextFileSync(`${workDir}/${ctxTpl.load.md[key]}`));
+	context.text[key] = context.text[key].slice(context.text[key].indexOf("<p>"), context.text[key].lastIndexOf("</p>"));
 };
 for (let key in ctxTpl?.load?.text) {
 	context.text[key] = Deno.readTextFileSync(`${workDir}/${ctxTpl.load.text[key]}`);
 };
 // Copy all texts
+for (let key in ctxSite?.copy?.md) {
+	context.base[key] = mdParser.makeHtml(ctxSite.copy.md[key]);
+};
+for (let key in ctxSite?.copy?.text) {
+	context.base[key] = ctxSite.copy.text[key];
+};
 for (let key in ctxTpl?.copy?.md) {
 	context.text[key] = mdParser.makeHtml(ctxTpl.copy.md[key]);
-	context.text[key] = context.text[key].slice(3, context.text[key].length - 4);
+	context.text[key] = context.text[key].slice(context.text[key].indexOf("<p>"), context.text[key].lastIndexOf("</p>"));
 };
 for (let key in ctxTpl?.copy?.text) {
 	context.text[key] = ctxTpl.copy.text[key];
 };
 
 // Context done
-//console.info(context);
+//console.error(context);
 console.info(Deno.readTextFileSync(`${workDir}/${ctxTpl.template}`).apply(context));

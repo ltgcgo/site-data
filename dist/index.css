@@ -1,0 +1,10 @@
+.nav-bar {
+	position: absolute;
+	width: calc(100% - 32px);
+	top: 0;
+}
+.footer {
+	position: absolute;
+	width: 100%;
+	bottom: 0;
+}

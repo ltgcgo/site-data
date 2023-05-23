@@ -1,5 +1,5 @@
 {
-	"template": "template.htm",
+	"template": "scene.htm",
 	"page": {
 		"title": "Lightingale Community - Flames in the Dark",
 		"desc": "A group of passionate people keeping the flames lit.",
@@ -7,10 +7,10 @@
 	},
 	"copy": {
 		"text": {
-			"title-1": "Lightingale"
+			"title-1": "Flames start <span class='text-accent'>here</span>"
 		},
 		"md": {
-			"desc-1": "A group of passionate individuals around the globe, gathered under the name **Lightingale Community**."
+			"desc-1": "Passionate, innovative, optimistic.\n\nWe are a group of individuals from around the globe,\n\nunited under the name of **Lightingale**."
 		}
 	},
 	"load": {
