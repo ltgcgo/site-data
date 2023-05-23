@@ -11,11 +11,11 @@ tree --noreport -ifld src | while IFS= read -r fullDir ; do
 	dir=${dirA/\//}
 	mkdir -p "dist/${dir}"
 	cp "src/${dir}/"* "dist/${dir}/" 2>/dev/null
-	rm "dist/${dir}/*.md" 2>/dev/null
-	rm "dist/${dir}/*.html" 2>/dev/null
+	rm "dist/${dir}/"*.md 2>/dev/null
+	rm "dist/${dir}/"*.html 2>/dev/null
 	if [ -e "src/${dir}/template.html" ] ; then
 		echo "Master template found under \"${dir}\"."
-		rm "dist/${dir}/template.html"
+		rm "dist/${dir}/template.html" 2>/dev/null
 		shx live $dir
 	fi
 done
