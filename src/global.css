@@ -84,7 +84,7 @@ div.scene-slide {
 	align-items: center;
 }
 div.scene-slide .scene-content {
-	min-width: max-content;
+	min-width: min-content;
 	width: 67%;
 }
 div.scene-layout-right {
@@ -144,6 +144,25 @@ span.text-accent {
 .nav-bar li > ul > li:hover {
 	background: var(--colour-fg);
 	color: var(--colour-bg);
+}
+
+@media (max-width: 500px) {
+	.nav-bar .type-icon {
+		display: block;
+		text-align: center;
+	}
+	.nav-bar ul > li > ul {
+		float: none;
+		width: 100%;
+	}
+	.nav-bar li > ul > li {
+		display: block;
+	}
+	.nav-bar li > ul > li a {
+		width: 100%;
+		display: inline-block;
+		text-align: center;
+	}
 }
 
 .footer {
