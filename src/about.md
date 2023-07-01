@@ -2,7 +2,9 @@
 * [Privacy Policy](https://kb.ltgc.cc/legal/privacy-policy)
 
 ## Our presence
+* Codeberg: [@ltgc](https://codeberg.org/ltgc)
 * GitHub: [@ltgcgo](https://github.com/ltgcgo)
+* GitLab: [@ltgc](https://gitlab.com/ltgc)
 * Mastodon: [@lightingale@fosstodon.org](https://fosstodon.org/@lightingale)
 * Telegram: [@ltgc_t](https://t.me/ltgc_t)
 
